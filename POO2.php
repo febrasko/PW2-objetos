@@ -54,5 +54,6 @@ class Gato {
 
 }
 
-$robson = new Gato("Rottweiler", "Roxo", -1);
+$robson = new Gato("Rottweiler", "Roxo", 20);
+$robson->imprimirDados();
 ?>
