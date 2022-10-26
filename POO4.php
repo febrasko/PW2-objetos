@@ -1,5 +1,5 @@
 <?php
-// interface é um contrato que serve para "obrigar" as class a usar esses parâmetros
+// interface é um contrato que serve para "obrigar" as class a usar essas funções
 interface Animais {
     public function fazerSom ();
 }
