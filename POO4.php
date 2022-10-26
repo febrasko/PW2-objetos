@@ -1,6 +1,4 @@
-<!-- Orientação a Objeto -->
 <?php
-// CLASSE
 // interface é um contrato que serve para "obrigar" as class a usar esses parâmetros
 interface Animais {
     public function fazerSom ();
