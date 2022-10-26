@@ -1,4 +1,3 @@
-<!-- Orientação a Objeto -->
 <?php
 class Gato {
     private $raca;
@@ -17,25 +16,25 @@ class Gato {
     }
 
     public function getPeso(){
-        return $this->peso;
-    }
-    public function getRaca(){
-        return $this->raca;
-    }
-    public function getCor(){
-        return $this->cor;
-    }
-
-    public function setRaca($raca){
-        return $this->raca = $raca;
-    }
-    public function setCor($cor){
-        return $this->cor = $cor;
+        return "{$this->peso} gramas";
     }
     public function setPeso($peso){
         if ($peso < 16000000 && $peso > 0) 
         return $this->peso = $peso;        
     }
+    public function getRaca(){
+        return $this->raca;
+    }
+    public function setRaca($raca){
+        return $this->raca = $raca;
+    }
+    public function getCor(){
+        return $this->cor;
+    }
+    public function setCor($cor){
+        return $this->cor = $cor;
+    }
+
     
     public function miar(){
         echo "VRUM VRUM!";
@@ -54,6 +53,6 @@ class Gato {
 
 }
 
-$robson = new Gato("Rottweiler", "Roxo", 20);
+$robson = new Gato("Rottweiler", "Roxo", 14000);
 $robson->imprimirDados();
 ?>

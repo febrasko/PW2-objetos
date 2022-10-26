@@ -1,55 +1,45 @@
-<!-- Orientação a Objeto -->
 <?php
-// CLASSE
-class Gato extends Animal { // CamelCase
-    // Elementos privados não podem ser usados fora da classe
-    // Elementos protected podem ser acessados somente pela classe e pelos filhos
-
-    public function miar(){ // pascalCase
-        echo "VRUM VRUM!";
-    }
-
-    
-    // ORDEM DE ELEMENTOS EM UMA CLASSE: 
-    // Atributos -> Getters e Setters -> Outras funções
-}
-class Cachorro extends Animal {
-    // extends serve para herdar os atributos e metodos de outra class
-    // herança é utilizada para não ter repetição de codigo 
-    public function latir(){
-        echo"mau";
-    }
-}
 class Animal {
     private $raca;
     private $peso;
     private $cor;
-    
+    private $nome;
+
+    public function __construct($nome){
+        $this->nome = $nome;
+    }
+
     public function imprimirDados(){
-        // This referencia o objeto que está sendo chamado com a função
         echo 
-        "Raça: {$this->getRaca()} <br>
+        "Nome: {$this->getNome()} <br>
+        Raça: {$this->getRaca()} <br>
         Peso: {$this->getPeso()} <br>
         Cor: {$this->getCor()} <br><br>";
     }
-    // GETTER: tipo de função feita para adquirir o valor de um atributo de um objeto
-    public function getPeso(){
-        return $this->peso;
+
+    // Elementos protected podem ser acessados somente pela classe e pelos seus filhos
+    protected function getPeso(){
+        return "{$this->peso} gramas";
     }
-    public function getRaca(){
-        return $this->raca;
-    }
-    public function getCor(){
-        return $this->cor;
+    public function setPeso($peso){
+        if ($peso < 16000000 && $peso > 0) {
+            return $this->peso = $peso;
+        }
     }
 
-    // SETTER: Tipo de função feita para definir o valor de um atributo de um objeto
+    protected function getRaca(){
+        return $this->raca;
+    }
     public function setRaca($raca){
         if ($raca <> "")
         return $this->raca = $raca;
         else {
             echo"insira as coisas <br>";
         }
+    }
+
+    protected function getCor(){
+        return $this->cor;
     }
     public function setCor($cor){
         if ($cor <> "")
@@ -58,38 +48,46 @@ class Animal {
             echo"insira as coisas <br>";
         }
     }
-    public function setPeso($peso){
-        if ($peso < 16000000 && $peso > 0) 
-        return $this->peso = $peso;
+
+    protected function getNome(){
+        return $this->nome;
+    }
+    public function setNome($nome){
+        return $this->nome = $nome;
     }
 
     public function matar($quem){
         echo "{$quem} foi brutalmente aniquilado(a) <br><br>";
     }
 }
-// OBJETO
-$irineu = new Gato("IRINEU");
 
-// $irineu->raca = "você não sabe e nem eu"; 
-// $irineu->imprimirDados();
-// Não é possível diretamente definir o valor de um atributo privado fora da classe
-// Por padrão, defina todos os atributos de uma classe como privados
-$chuvisco = new Cachorro ();
+// extends serve para herdar os atributos e metodos de outra class
+// herança é utilizada para não ter repetição de codigo
+// Gato está herdando os atributos e métodos de Animal
+class Gato extends Animal {
+    public function miar(){
+        echo "VRUM VRUM!";
+    }
+}
+
+class Cachorro extends Animal {
+    public function latir(){
+        echo"mau";
+    }
+}
+
+$chuvisco = new Cachorro("Chuvisco");
 $chuvisco -> setRaca("canibal");
-$chuvisco -> setCor("idjsg");
+$chuvisco -> setCor("arco-íris");
 $chuvisco -> setPeso(1);
 $chuvisco -> imprimirDados();
 $chuvisco -> matar("kauan");
 
-$robson = new Gato("ROBSON");
-$robson->matar("samarah");
-
-$fernando = new Gato("FERNANDO");
-$fernando -> setRaca("Bull dog");
-$fernando -> setCor("Verde");
-$fernando -> setPeso(1);
-$fernando -> imprimirDados();
-
-$lanaDelRey = new Gato("LANA DEL REY");
+$bambi = new Gato("Bambi");
+$bambi->setRaca("Ração");
+$bambi->setCor("Preto");
+$bambi->setPeso(900);
+$bambi->imprimirDados();
+$bambi->matar("Steve Jobs");
 
 ?>

@@ -25,7 +25,7 @@ class Gato { // CamelCase
 
     // GETTER: tipo de função feita para adquirir o valor de um atributo de um objeto
     public function getPeso(){
-        return $this->peso;
+        return "{$this->peso} gramas";
     }
     public function getRaca(){
         return $this->raca;
@@ -52,23 +52,22 @@ class Gato { // CamelCase
 
 
 // OBJETO
-$irineu = new Gato("IRINEU");
+// Criando um objeto chamando a classe
 
+// $irineu = new Gato();
 // $irineu->raca = "você não sabe e nem eu"; 
 // $irineu->imprimirDados();
 // Não é possível diretamente definir o valor de um atributo privado fora da classe
 // Por padrão, defina todos os atributos de uma classe como privados
 
 
-$robson = new Gato("ROBSON");
+$robson = new Gato();
 $robson->matar("samarah");
 
+// Definindo os atributos da classe usando as funções setters
 $fernando = new Gato("FERNANDO");
 $fernando -> setRaca("Bulldog");
 $fernando -> setCor("Verde");
-$fernando -> setPeso(-1);
+$fernando -> setPeso(14);
 $fernando -> imprimirDados();
-
-$lanaDelRey = new Gato("LANA DEL REY");
-
 ?>
