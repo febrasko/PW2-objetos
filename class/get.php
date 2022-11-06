@@ -1,11 +1,10 @@
-<?php 
+<?php
 
-class Post {
-
+class Get 
+{
     public function get(string $index){
         if (empty($index)) return '';
 
-        return isset($_POST[$index]) ? $_POST[$index] : '';
+        return isset($_GET[$index]) ? $_GET[$index] : '';
     }
-    
 }
