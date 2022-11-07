@@ -5,6 +5,9 @@ body {
     color: rgba(248, 248, 242, 1);
     text-align: center;
 }
+a {
+    color: chartreuse;
+}
 section {
     text-align: left;
     background-color: white;
